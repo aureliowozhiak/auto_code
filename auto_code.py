@@ -47,9 +47,9 @@ class AutoCode:
         else:
             code_type = "code"
 
-        text = f"in {code_lang} create a {code_type} with the name {code_name}{extra_text} that makes {main_function}"
+        text = f"in {code_lang} create a {code_type} with the name {code_name.replace(' ', '')}{extra_text} that makes {main_function}"
         response_content = self.get_openai_response_text(text)
-        self.create_file(f"{code_name.lower()}{extension}", response_content)
+        self.create_file(f"{code_name.replace(' ', '_').lower()}{extension}", response_content)
 
 
 
