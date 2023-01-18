@@ -23,7 +23,7 @@ Example
 ```
 from auto_code import AutoCode
 code_generator = AutoCode()
-code_generator.create_class("MyClass", "add two numbers together", is_class = True)
+code_generator.create_code("MyClass", "add two numbers together", is_class = True)
 ```
 
 This will create a file named "myclass.py" with a class named "MyClass" that has a method that adds two numbers together in Python.
