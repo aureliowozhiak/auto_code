@@ -38,8 +38,19 @@ class AutoCode:
         #close file
         text_file.close()
 
-    def create_class(self, class_name, class_main_function, code_lang = "Python", extension = ".py"):
-        text = f"in {code_lang} create a class with the name {class_name} and methods that makes {class_main_function}"
+    def create_code(self, code_name, main_function, is_class = False, code_lang = "Python", extension = ".py"):
+        extra_text = ""
+
+        if is_class:
+            code_type = "class"
+            extra_text += " and methods"
+        else:
+            code_type = "code"
+
+        text = f"in {code_lang} create a {code_type} with the name {code_name}{extra_text} that makes {main_function}"
         response_content = self.get_openai_response_text(text)
-        self.create_file(f"{class_name.lower()}{extension}", response_content)
+        self.create_file(f"{code_name.lower()}{extension}", response_content)
+
+
+
 
