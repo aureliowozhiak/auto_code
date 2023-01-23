@@ -1,4 +1,5 @@
 import openai
+import pandas as pd
 
 #open text file
 text_file = open("key", "r")
@@ -50,6 +51,16 @@ class AutoCode:
         text = f"in {code_lang} create a {code_type} with the name {code_name.replace(' ', '')}{extra_text} that makes {main_function}"
         response_content = self.get_openai_response_text(text)
         self.create_file(f"{code_name.replace(' ', '_').lower()}{extension}", response_content)
+
+    def execute_to_do_table(self, to_do = pd.DataFrame([])):
+        for item in to_do.iterrows():
+            self.create_code(
+                code_name = item[1]["code_name"],
+                main_function = item[1]["main_function"],
+                is_class = item[1]["is_class"],
+                code_lang = item[1]["code_lang"],
+                extension = item[1]["extension"]
+            )
 
 
 
