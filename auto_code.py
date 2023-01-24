@@ -31,7 +31,7 @@ class AutoCode:
     def create_file(self, file_name, file_content):
 
         #open text file
-        text_file = open(file_name, "w")
+        text_file = open(file_name, "w", encoding="utf-8")
 
         #write string to file
         text_file.write(file_content)
