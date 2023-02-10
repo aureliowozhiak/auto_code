@@ -38,10 +38,6 @@ $$$$$$/   /$$$$$$  |      $$    $$ |$$ |  $$ |$$$$$$/   /$$$$$$  |$$ |      /$$$
 
 exit = False
 
-file_path = input("The path to create the file: ").replace("\\", "/")
-import sys
-sys.path.append(file_path)
-
 while(not exit):
     
 
